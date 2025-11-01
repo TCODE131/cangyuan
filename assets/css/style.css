@@ -1,0 +1,865 @@
+:root {
+    --bg: #0b0f17;
+    --bg-soft: #0f1524;
+    --text: #e6f1ff;
+    --muted: #9aa5b1;
+    --accent: #00e5ff;
+    --card: rgba(255, 255, 255, 0.03);
+    --glass: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, 'Noto Sans TC', system-ui, -apple-system, Segoe UI, Roboto, 'PingFang TC', 'Heiti TC', sans-serif;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.container {
+    width: min(1100px, 92vw);
+    margin: 0 auto;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border);
+}
+
+.glass {
+    backdrop-filter: blur(10px);
+    background: var(--glass);
+}
+
+.nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .8rem 0;
+    gap: 1rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-weight: 800;
+    letter-spacing: .5px;
+}
+
+.logo-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 18px var(--accent);
+    display: inline-block;
+}
+
+.nav a {
+    margin: 0 .6rem;
+    padding: .4rem .3rem;
+    border-bottom: 2px solid transparent;
+}
+
+.nav a.active,
+.nav a:hover {
+    border-color: var(--accent);
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: .4rem .6rem;
+    border-radius: .6rem;
+}
+
+.theme-btn {
+    margin-left: .6rem;
+    border: 1px solid var(--border);
+    padding: .4rem .6rem;
+    border-radius: .6rem;
+    background: none;
+    color: var(--text);
+}
+
+.hero {
+    position: relative;
+    padding: 9rem 0 5rem;
+    overflow: hidden;
+}
+
+.subtitle {
+    color: var(--muted);
+    margin-top: .2rem;
+}
+
+.grid-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 120% -20%, rgba(0, 229, 255, .15), transparent 40%), radial-gradient(ellipse at -20% 120%, rgba(0, 229, 255, .08), transparent 40%), linear-gradient(transparent, transparent 60%, rgba(0, 229, 255, .04));
+    pointer-events: none;
+}
+
+.glitch {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: clamp(36px, 7vw, 84px);
+    font-weight: 800;
+    letter-spacing: 2px;
+    position: relative;
+    display: inline-block;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    mix-blend-mode: screen;
+    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 55%);
+    filter: blur(.5px);
+}
+
+.glitch::before {
+    transform: translate(2px, -1px);
+    color: #f0f;
+}
+
+.glitch::after {
+    transform: translate(-2px, 1px);
+    color: #0ff;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    padding: 2rem 0 3rem;
+}
+
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.1rem;
+    transition: transform .2s ease, border-color .2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent);
+}
+
+.cards-2 {
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+.link {
+    display: inline-block;
+    margin-top: .6rem;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.aside img {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+}
+
+.badge {
+    margin-top: .6rem;
+    display: inline-block;
+    padding: .3rem .6rem;
+    border: 1px solid var(--border);
+    border-radius: .6rem;
+    color: var(--muted);
+}
+
+.timeline {
+    list-style: none;
+    margin: 0;
+    padding: 1rem 0;
+    border-left: 2px solid var(--border);
+}
+
+.timeline li {
+    margin: 1rem 0 1.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.timeline .time {
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: .2rem;
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    left: -7px;
+    top: 6px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 16px var(--accent);
+}
+
+.meta {
+    color: var(--muted);
+    font-size: .95rem;
+    padding-left: 1rem;
+}
+
+.resume .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem 1rem;
+}
+
+.btn {
+    border: 1px solid var(--border);
+    padding: .6rem 1rem;
+    border-radius: .7rem;
+    display: inline-block;
+}
+
+.btn.primary {
+    background: linear-gradient(90deg, var(--accent), #7af5ff);
+    color: #001018;
+    border: none;
+    font-weight: 700;
+    box-shadow: 0 0 24px rgba(0, 229, 255, .25);
+}
+
+.contact-form {
+    display: grid;
+    gap: .8rem;
+    max-width: 700px;
+    margin-top: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: .5rem .9rem;
+    border-radius: .6rem;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    color: var(--text);
+}
+
+.form-note {
+    color: var(--muted);
+    font-size: .9rem;
+}
+
+.site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1rem 0;
+    margin-top: 3rem;
+}
+
+.footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.icon-link svg {
+    fill: var(--muted);
+}
+
+.icon-link:hover svg {
+    fill: var(--accent);
+}
+
+.content {
+    min-height: 2vh;
+}
+
+
+/* Active nav link */
+
+.nav a.active {
+    border-color: var(--accent);
+}
+
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .two-col {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 720px) {
+    .nav-toggle {
+        display: block;
+    }
+    .nav {
+        display: none;
+        position: absolute;
+        right: 2vw;
+        top: 60px;
+        background: var(--glass);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: .6rem;
+    }
+    .nav.open {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav a,
+    .nav button {
+        margin: .3rem .6rem;
+    }
+}
+
+
+/* Light theme */
+
+:root.light {
+    --bg: #f8fbff;
+    --bg-soft: #ffffff;
+    --text: #0b0f17;
+    --muted: #506070;
+    --card: rgba(0, 0, 0, .03);
+    --glass: rgba(255, 255, 255, 0.75);
+    --border: rgba(0, 0, 0, 0.08);
+}
+
+.muted {
+    color: var(--muted);
+}
+
+
+/* === Tighter timeline (global) === */
+
+.timeline {
+    padding: .5rem 0;
+}
+
+
+/* 原: 1rem 0 */
+
+.timeline li {
+    margin: .35rem 0 .5rem;
+}
+
+
+/* 原: 1rem 0 1.5rem */
+
+.timeline .time {
+    margin-bottom: .1rem;
+}
+
+
+/* 原: .2rem */
+
+.timeline li::before {
+    top: 4px;
+    width: 8px;
+    height: 8px;
+}
+
+
+/* 縮小節點 */
+
+
+/* === Zero-spacing timeline (items stick together) === */
+
+.timeline {
+    padding: 0;
+}
+
+.timeline li {
+    margin: 0;
+}
+
+.timeline .time {
+    margin-bottom: 0;
+}
+
+.timeline li::before {
+    top: 2.5em;
+    width: 8px;
+    height: 8px;
+}
+
+
+/* center the dot with text */
+
+.timeline .content {
+    margin: 0;
+}
+
+.timeline,
+.timeline * {
+    line-height: 1.15;
+}
+
+
+/* tighter line height to avoid overlap */
+
+
+/* === Resume-only super compact timeline === */
+
+.resume .timeline {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.resume .timeline li {
+    margin: 0 !important;
+    padding-left: .8rem;
+}
+
+.resume .timeline li+li {
+    margin-top: .15rem;
+}
+
+
+/* 幾乎貼在一起 */
+
+.resume .timeline .time {
+    margin: 0 !important;
+    line-height: 3.05;
+    font-size: 2rem;
+}
+
+.resume .timeline .content {
+    margin: 0 !important;
+    line-height: 1.15;
+}
+
+.resume h2 {
+    margin: .5rem 0 .35rem;
+}
+
+
+/* Hero slider */
+
+.hero {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: relative;
+}
+
+.slides {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slides>img {
+    width: 100%;
+    height: clamp(260px, 52vh, 520px);
+    object-fit: cover;
+    scroll-snap-align: center;
+    user-select: none;
+    pointer-events: none;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    padding-top: 2rem;
+    text-align: center;
+    background: linear-gradient(180deg, rgba(10, 16, 24, 0) 40%, rgba(10, 16, 24, 0.06));
+}
+
+.ctrl {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 1px solid var(--border);
+    background: var(--glass);
+    color: var(--text);
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+}
+
+.ctrl:hover {
+    border-color: var(--accent);
+}
+
+.ctrl.prev {
+    left: 14px;
+}
+
+.ctrl.next {
+    right: 14px;
+}
+
+.dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: var(--border);
+}
+
+.dots button.active {
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+.hero {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: end center;
+    padding: 2.5rem 1rem 3.2rem;
+    text-align: center;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-overlay::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .00) 0%, rgba(0, 0, 0, .18) 40%, rgba(0, 0, 0, .28) 65%, rgba(0, 0, 0, .36) 100%);
+    pointer-events: none;
+}
+
+.hero-overlay .glitch {
+    text-shadow: 0 4px 22px rgba(0, 0, 0, .45), 0 1px 0 rgba(0, 0, 0, .35);
+}
+
+.hero-overlay .subtitle {
+    color: var(--text);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
+}
+
+.hero-overlay .cta {
+    pointer-events: auto;
+    display: inline-flex;
+    gap: .6rem;
+    padding: .55rem .8rem;
+    margin-top: .8rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, .25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.slides>img {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 6%, #000 94%, transparent 100%);
+}
+
+.ctrl {
+    z-index: 3;
+}
+
+.dots {
+    z-index: 3;
+}
+
+.card {
+    transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, .08);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 26px rgba(0, 0, 0, .12), 0 0 0 1px rgba(0, 229, 255, .12) inset;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 42px;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .18), rgba(0, 0, 0, 0));
+    pointer-events: none;
+}
+
+@keyframes kenburns {
+    0% {
+        transform: scale(1)
+    }
+    50% {
+        transform: scale(1.04)
+    }
+    100% {
+        transform: scale(1)
+    }
+}
+
+.slides>img {
+    animation: kenburns 18s ease-in-out infinite;
+}
+
+
+/* === Hero 可調參數（依你的紅線/高度調整） === */
+
+.hero {
+    --hero-max: 1200px;
+    /* 圖片與滑動區的最大寬度（對齊紅線距離） */
+    --hero-height: clamp(300px, 52vh, 560px);
+    --fade-start: 80px;
+    /* ← 從左右邊緣內縮多少開始霧化（紅線距離） */
+    --fade-soft: 10px;
+    /* 霧化寬度（越大越柔） */
+}
+
+
+/* 限制滑動區容器寬度，置中 */
+
+.hero .hero-slider {
+    display: grid;
+    place-items: center;
+}
+
+.hero .slides {
+    max-width: var(--hero-max);
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 100%;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.hero .slides::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* 圖片高度與霧化（從 --fade-start 開始） */
+
+.hero .slides>img {
+    width: 100%;
+    height: var(--hero-height);
+    object-fit: cover;
+    object-position: 50% 50%;
+    scroll-snap-align: center;
+    user-select: none;
+    pointer-events: none;
+    /* 兩側「內縮後」才開始淡出：用雙線性漸層遮罩做 feather */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0, transparent calc(var(--fade-start) - var(--fade-soft)), #000 calc(var(--fade-start) + 0px), #000 calc(100% - var(--fade-start) - 0px), transparent calc(100% - var(--fade-start) + var(--fade-soft)), transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0, transparent calc(var(--fade-start) - var(--fade-soft)), #000 calc(var(--fade-start) + 0px), #000 calc(100% - var(--fade-start) - 0px), transparent calc(100% - var(--fade-start) + var(--fade-soft)), transparent 100%);
+}
+
+
+/* 英雄區文字更清楚（加前景玻璃底＋背景暗層） */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: end center;
+    padding: 2.6rem 1rem 3.3rem;
+    text-align: center;
+    z-index: 2;
+    pointer-events: none;
+    /* 不擋滑動 */
+}
+
+.hero-overlay::before {
+    /* 背景暗層：下方較深，讓紫線附近的字更清楚 */
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .00) 0%, rgba(0, 0, 0, .18) 36%, rgba(0, 0, 0, .32) 72%, rgba(0, 0, 0, .38) 100%);
+}
+
+
+/* 文字本身的陰影，拉高對比 */
+
+.hero-overlay .glitch {
+    text-shadow: 0 4px 22px rgba(0, 0, 0, .45), 0 1px 0 rgba(0, 0, 0, .35);
+}
+
+.hero-overlay .subtitle {
+    text-shadow: 0 2px 12px rgba(0, 0, 0, .45);
+}
+
+
+/* CTA 做玻璃底且可點擊 */
+
+.hero-overlay .cta {
+    pointer-events: auto;
+    display: inline-flex;
+    gap: .6rem;
+    padding: .55rem .8rem;
+    margin-top: .8rem;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, .28);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, .18);
+}
+
+
+/* 控制鈕/圓點層級保持在最上方 */
+
+.ctrl {
+    z-index: 3;
+}
+
+.dots {
+    z-index: 3;
+}
+
+
+/* 純圖片輪播：保持你現有的 .hero/.hero-slider/.slides 樣式即可 */
+
+
+/* 新增的「文字在下」區塊 */
+
+.hero-text {
+    max-width: 1200px;
+    /* 跟輪播寬度對齊；需要更窄就改這裡 */
+    margin: 0 auto;
+    padding: 1.25rem 1rem 0;
+    /* 上、左右、下 */
+    text-align: center;
+}
+
+.hero-text .glitch {
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 0 4px 22px rgba(0, 0, 0, .18);
+    /* 淺色主題也好讀 */
+}
+
+.hero-text .subtitle {
+    margin: .5rem 0 1rem;
+    opacity: .9;
+}
+
+.hero-text .cta {
+    display: inline-flex;
+    gap: .6rem;
+}
+
+
+/* 把之前用於覆蓋層的樣式關掉（避免影響） */
+
+.hero-overlay {
+    display: none !important;
+}
+
+.hero {
+    margin-bottom: .75rem;
+}
+
+
+/* 進場動畫：滑入 + 淡入（從下往上） */
+
+@keyframes slideFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px) scale(.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* 若想改成「從上滑下」，把 translateY(24px) 改成 translateY(-24px) 即可 */
+
+.reveal {
+    animation: slideFadeUp .7s cubic-bezier(.22, .9, .33, 1) both;
+    will-change: transform, opacity;
+}
+
+
+/* 階梯延遲（副標、按鈕晚一點出場） */
+
+.reveal.del-1 {
+    animation-delay: .08s;
+}
+
+.reveal.del-2 {
+    animation-delay: .16s;
+}
+
+
+/* 使用者偏好減少動效：關閉動畫、直接顯示 */
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

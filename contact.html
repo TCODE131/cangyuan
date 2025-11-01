@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>聯絡 · HI HI — Tech Portfolio</title>
+    <meta name="description" content="科技風個人簡介網站：比賽經歷、學業歷程、作品集、履歷與聯絡方式。" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script defer src="assets/js/main.js"></script>
+</head>
+
+<body>
+
+    <header class="site-header glass">
+        <div class="container nav-row">
+            <a class="brand" href="index.html">
+                <span class="logo-dot"></span><span class="brand-text">HI HI</span>
+            </a>
+            <button class="nav-toggle" aria-label="Toggle Menu">☰</button>
+            <nav class="nav">
+                <a href="index.html">首頁</a>
+                <a href="about.html">關於我</a>
+                <a href="academics.html">學業歷程</a>
+                <a href="competitions.html">比賽經歷</a>
+                <a href="projects.html">作品集</a>
+                <a href="resume.html">履歷</a>
+                <a href="contact.html">聯絡</a>
+                <button id="themeSwitch" class="theme-btn" title="切換主題">🌓</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+
+        <section class="container">
+            <h1>聯絡我</h1>
+            <p>你可以透過下列方式聯絡我：</p>
+            <ul class="contact-list">
+                <li>Email：<a href="mailto:qq08522580@gmail.com">qq08522580@gmail.com</a></li>
+                <li>GitHub：<a href="https://github.com/TCODE131" target="_blank" rel="noopener">TCODE</a></li>
+                <li>IG：<a href="https://www.instagram.com/cangy1118/" target="_blank" rel="noopener">cangy1118</a></li>
+            </ul>
+            <form class="contact-form" name="contact" netlify>
+                <input type="hidden" name="form-name" value="contact" />
+                <label>你的姓名 <input name="name" required></label>
+                <label>Email <input type="email" name="email" required></label>
+                <label>訊息 <textarea name="message" rows="5" required></textarea></label>
+                <button class="btn primary" type="submit">送出</button>
+                <p class="form-note">＊預設使用 Netlify Forms；若用 GitHub Pages，改接 Formspree。</p>
+            </form>
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-row">
+            <p>© 2025 HI HI. Built with ♡．Theme: Tech Neon.</p>
+            <div class="social">
+                <a href="#" aria-label="GitHub" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.55-1.41-1.35-1.79-1.35-1.79-1.1-.75.08-.73.08-.73 1.22.09 1.86 1.25 1.86 1.25 1.08 1.86 2.84 1.32 3.53 1.01.11-.78.42-1.32.76-1.62-2.67-.3-5.47-1.34-5.47-5.95 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.62-2.81 5.64-5.49 5.94.43.37.81 1.11.81 2.24v3.32c0 .32.22.7.83.58A12 12 0 0 0 12 .5z"/></svg>
+                </a>
+                <a href="#" aria-label="LinkedIn" class="icon-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.94 6.94A2.94 2.94 0 1 1 1.06 6.94a2.94 2.94 0 0 1 5.88 0zM.5 23.5h5.12V8.91H.5V23.5zm7.61 0h5.11v-7.13c0-1.9.36-3.74 2.71-3.74 2.31 0 2.34 2.16 2.34 3.86v7.01h5.11V15.6c0-3.89-.84-6.88-5.4-6.88-2.19 0-3.66 1.2-4.26 2.33h-.06V8.92H8.11c.07 1.08 0 14.58 0 14.58z"/></svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
